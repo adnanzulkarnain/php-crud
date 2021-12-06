@@ -19,6 +19,7 @@ $result = mysqli_query($mysqli, "SELECT * FROM tbsiswa WHERE id=$id");
 while($data = mysqli_fetch_array($result)) {
     $name = $data['name'];
     $address = $data['address'];
+    echo $address;
 }
 
 // --------------------------------------------
@@ -63,11 +64,11 @@ if(isset($_POST['update']))
             <form name="update_user" method="post" action="edit.php">
                 <div class="form-group">
                     <label>name</label>
-                    <input type="text" class="form-control" name="name" placeholder="name" value=<?php echo $name;?>>
+                    <input type="text" class="form-control" name="name" placeholder="name" value="<?php echo $name;?>">
                 </div> 
                 <div class="form-group">
                     <label>address</label>
-                    <input type="text" class="form-control" name="address" placeholder="address" value=<?php echo $address;?>>
+                    <input type="text" class="form-control" name="address" placeholder="address" value="<?php echo $address; ?>">
                 </div>
                 <input type="hidden" name="id" value=<?php echo $_GET['id'];?>>
                 <button type="submit" name="update" class="btn btn-primary">Update</button>        
